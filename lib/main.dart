@@ -1,6 +1,6 @@
+import 'package:bloc_learning/5_counter_example/ui/counter_screen.dart';
 import 'package:flutter/material.dart';
-
-import '2_ equitable_example.dart';
+import '2_equiable_example/2_ equitable_example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,17 +9,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home:  EquitableTesting(),
+    return const MaterialApp(
+      //home:  EquitableTesting(),
+      debugShowCheckedModeBanner: false,
+      home: CounterScreen(),
     );
   }
 }
