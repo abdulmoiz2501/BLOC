@@ -10,6 +10,7 @@ class EnableOrDisableNotifications extends SwitchEvent{}
 
 
 class SliderEvent extends SwitchEvent{
+  //to take input
   double slider;
 
   SliderEvent({required this.slider});

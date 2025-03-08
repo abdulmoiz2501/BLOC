@@ -24,12 +24,11 @@ class SwitchScreen extends StatelessWidget {
               children: [
                 const Text('Notifications'),
                 BlocBuilder<SwitchBloc, SwitchStates>(
-
+                  buildWhen: (previous, current) => previous.isSwitch != current.isSwitch,
                   builder: (context, state) {
                     return Switch(
                       value: state.isSwitch,
                       onChanged: (newValue) {
-                        print("SwitchBloc is now in state $state");
                         print("New value of the switch is $newValue");
                         context.read<SwitchBloc>().add(EnableOrDisableNotifications());
                       },
@@ -40,6 +39,7 @@ class SwitchScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             BlocBuilder<SwitchBloc, SwitchStates>(
+              buildWhen: (previous, current) => previous.slider != current.slider,
               builder: (context, state) {
                 return Container(
                   height : 200,
@@ -54,7 +54,6 @@ class SwitchScreen extends StatelessWidget {
               builder: (context, state) {
                return Slider(value: state.slider, onChanged: (value) {
                   print("Slider value is $value");
-                  print("SwitchBloc is now in state $state");
                   context.read<SwitchBloc>().add(SliderEvent(slider:value));
                 });
               },
