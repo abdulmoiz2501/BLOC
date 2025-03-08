@@ -26,8 +26,6 @@ class _CounterScreenState extends State<CounterScreen> {
         children: [
           BlocBuilder<CounterBloc, CounterState>(
             builder: (context, state) {
-             // print("build");
-              print('CounterScreen: ${state.counter}');
               return Center(
                 child: Text(
                   state.counter.toString(),
